@@ -1,0 +1,48 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:RickAndMorty.ViewModels"
+             xmlns:components="clr-namespace:RickAndMorty.Components"
+             xmlns:avaloniaProgressRing="clr-namespace:AvaloniaProgressRing;assembly=AvaloniaProgressRing"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="RickAndMorty.Views.PersonPage"
+             Initialized="PersonPage_OnInitialized"
+             x:DataType="viewModels:PersonsPageViewModel">
+    <UserControl.DataContext>
+        <viewModels:PersonsPageViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Background>
+        <VisualBrush Opacity="0.4" Stretch="UniformToFill">
+            <VisualBrush.Visual>
+                <Image x:Name="ImageBackground" Source="avares://RickAndMorty/Assets/LocationBakground.jpg" />
+            </VisualBrush.Visual>
+        </VisualBrush>
+    </UserControl.Background>
+    <Grid>
+        <ScrollViewer>
+            <ItemsControl x:Name="ItemsControlPerson" ItemsSource="{Binding PersonsPageViewModels}" HorizontalAlignment="Center">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="20">
+                            <components:PersonCardComponent DataContext="{Binding}"/>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <avaloniaProgressRing:ProgressRing Width="100" 
+                               Height="100"
+                               IsVisible="{Binding IsVisibleLoader}"
+                               IsActive="True"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Foreground="{StaticResource Loader_Background}"
+                               Margin="10,20,0,0"/>
+    </Grid>
+</UserControl>

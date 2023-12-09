@@ -1,0 +1,60 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <Styles.Resources>
+        <Color x:Key="Loader_Background">#868BF8</Color>
+        <Color x:Key="TabItem_Header_Background">#868BF8</Color>
+        <Color x:Key="TabItem_Header_Foreground">#FFFFFF</Color>
+        <FontWeight x:Key="TabItem_Header_FontWeight">700</FontWeight>
+        <Color x:Key="TabItem_Header_Selected_Foreground">#000000</Color>
+        <FontWeight x:Key="TabItem_Header_Selected_FontWeight">700</FontWeight>
+        <FontFamily x:Key="MyFont">avares://RickAndMorty/PlayfairDisplay.ttf#PlayfairDisplay</FontFamily>
+        <FontWeight x:Key="TextBlock_MainPage_FontWeight">900</FontWeight>
+        <Color x:Key="TextBlock_MainPage_Foreground">#FFFFFF</Color>
+        <system:String x:Key="MainPageText1">"Рик и Морти" - это анимационный научно-фантастический сериал, созданный Дэном Гарманом и Джастином Ройландом. Сериал смешивает элементы черного юмора, фантастики и философских размышлений, создавая уникальное и захватывающее киноискусство.</system:String>
+        <system:String x:Key="MainPageText2">Сюжет "Рика и Морти" следует за приключениями Рика Санчеза, гениального, но аморального научника, и его внука Морти Смита. Рик обладает необычными научными знаниями и способностями, а также постоянно путешествует по многочисленным измерениям и галактикам. Вместе с Морти они исследуют параллельные миры, взаимодействуют с разнообразными инопланетными существами и участвуют в самых невероятных и опасных приключениях.</system:String>
+        <system:String x:Key="MainPageText3">Сериал отличается своим уникальным стилем и насыщенным сюжетом, который одновременно комический и философски насыщенный. "Рик и Морти" исследует различные аспекты человеческой натуры, общества и морали, предлагая зрителям множество интересных и глубоких вопросов. В сериале также присутствует множество второстепенных персонажей, каждый из которых приносит свой вклад в общую атмосферу и юмор.</system:String>
+        <system:String x:Key="MainPageText4">Смесь уморительных сцен, интригующего сюжета и философских размышлений делает "Рика и Морти" одним из самых популярных и оригинальных анимационных сериалов, пригодных для взрослых. Сериал предоставляет зрителям уникальную возможность рассматривать сложные темы через призму научной фантастики и юмора, что делает его настоящим произведением искусства и источником размышлений.</system:String>
+    </Styles.Resources>
+    
+    <Style Selector="TextBlock">
+        <Setter Property="FontFamily" Value="PlayfairDisplay"></Setter>
+        <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+    </Style>
+    <Style Selector="TextBlock.Title">
+        <Setter Property="FontWeight" Value="{StaticResource TextBlock_MainPage_FontWeight}" />
+        <Setter Property="Foreground" Value="{StaticResource TextBlock_MainPage_Foreground}" />
+        <Setter Property="FontSize" Value="40" />
+        <Setter Property="LineHeight" Value="85.31" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextAlignment" Value="Center" />
+    </Style>
+    
+    <Style Selector="TextBlock.MainPage">
+        <Setter Property="FontWeight" Value="{StaticResource TextBlock_MainPage_FontWeight}" />
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="LineHeight" Value="24" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{StaticResource TextBlock_MainPage_Foreground}" />
+    </Style>
+    
+    <Style Selector="TabItem.Menu">
+        <Setter Property="MaxWidth" Value="Infinity" />
+        <Setter Property="FontFamily" Value="PlayfairDisplay"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource TabItem_Header_Foreground}" />
+        <Setter Property="Background" Value="{StaticResource TabItem_Header_Background}" />
+        <Setter Property="FontWeight" Value="{StaticResource TabItem_Header_FontWeight}" />
+    </Style>
+    
+    <Style Selector="TabItem.Menu:selected">
+        <Setter Property="FontWeight" Value="{StaticResource TabItem_Header_Selected_FontWeight}" />
+        <Setter Property="Foreground" Value="{StaticResource TabItem_Header_Selected_Foreground}" />
+    </Style>
+</Styles>

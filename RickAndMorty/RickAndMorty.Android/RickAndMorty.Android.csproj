@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>$(BaseTargetFramework)-android</TargetFramework>
+        <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+        <Nullable>enable</Nullable>
+        <ApplicationId>com.CompanyName.RickAndMorty</ApplicationId>
+        <ApplicationVersion>1</ApplicationVersion>
+        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <AndroidPackageFormat>apk</AndroidPackageFormat>
+        <AndroidEnableProfiledAot>False</AndroidEnableProfiledAot>     
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <AndroidLinkMode>None</AndroidLinkMode>
+      <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <AndroidLinkMode>Full</AndroidLinkMode>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AndroidResource Include="Icon.png">
+            <Link>Resources\drawable\Icon.png</Link>
+        </AndroidResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.0.6" />
+        <PackageReference Include="Avalonia.Android" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.7" />
+        <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.android" Version="2.1.7" />
+        <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.4" />
+        <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+        <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\RickAndMorty\RickAndMorty.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\RickAndMorty\appsettings.json">
+        <Link>Resources\values\appsettings.json</Link>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+</Project>

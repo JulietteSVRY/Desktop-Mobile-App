@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>$(BaseTargetFramework)</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="Avalonia" Version="11.0.6" />
+      <PackageReference Include="Avalonia.Desktop" Version="11.0.6" />
+      <PackageReference Include="FluentValidation" Version="11.8.1" />
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1" />
+      <PackageReference Include="MediatR" Version="12.2.0" />    
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\RickAndMorty.Abstractions\RickAndMorty.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>

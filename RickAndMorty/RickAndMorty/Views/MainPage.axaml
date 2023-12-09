@@ -1,0 +1,58 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="832"
+             x:Class="RickAndMorty.Views.MainPage">
+    <UserControl.Background>
+        <VisualBrush Opacity="0.4" Stretch="UniformToFill">
+            <VisualBrush.Visual>
+                <Image x:Name="ImageBackground" Source="avares://RickAndMorty/Assets/MainPageBackground.jpg" />
+            </VisualBrush.Visual>
+        </VisualBrush>
+    </UserControl.Background>
+    <Grid ColumnDefinitions="0.1*,*,0.1*" RowDefinitions="0.05*,0.25*,*,0.1*">
+        <Viewbox Grid.Column="0" Grid.Row="1"
+                 Grid.ColumnSpan="3">
+            <TextBlock Classes="Title"
+                       Text="Рик и Морти"></TextBlock>
+        </Viewbox>
+        <Border Grid.Column="1" Grid.Row="2"
+                Background="#000000" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Width="{Binding ElementName=ScrollViewerText, Path=Bounds.Width}"
+                Height="{Binding ElementName=ScrollViewerText, Path=Bounds.Height}"
+                Opacity="0.6">
+        </Border>
+        <ScrollViewer x:Name="ScrollViewerText" Grid.Column="1" Grid.Row="2">
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <StackPanel.Styles>
+                    <Style Selector="TextBlock">
+                        <Setter Property="Margin" Value="0,0,0,15"></Setter>
+                    </Style>
+                </StackPanel.Styles>
+                <TextBlock Text="{StaticResource MainPageText1}"
+                           Classes="MainPage"
+                           ZIndex="1"
+                           TextWrapping="WrapWithOverflow">
+                </TextBlock>
+                <TextBlock Text="{StaticResource MainPageText2}"
+                           Classes="MainPage"
+                           ZIndex="1"
+                           TextWrapping="WrapWithOverflow">
+                </TextBlock>
+                <TextBlock Text="{StaticResource MainPageText3}"
+                           Classes="MainPage"
+                           ZIndex="1"
+                           TextWrapping="WrapWithOverflow">
+                </TextBlock>
+                <TextBlock Text="{StaticResource MainPageText4}"
+                           Classes="MainPage"
+                           ZIndex="1"
+                           TextWrapping="WrapWithOverflow">
+                </TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

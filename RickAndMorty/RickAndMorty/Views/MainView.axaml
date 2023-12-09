@@ -1,0 +1,84 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:RickAndMorty.ViewModels"
+             xmlns:views="clr-namespace:RickAndMorty.Views"
+             xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+             xmlns:avaloniaProgressRing="clr-namespace:AvaloniaProgressRing;assembly=AvaloniaProgressRing"
+             mc:Ignorable="d"  d:DesignWidth="1980" d:DesignHeight="832"
+             x:Class="RickAndMorty.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+    <UserControl.DataContext>
+        <vm:MainViewModel />
+    </UserControl.DataContext>
+    <Grid>
+        <dialogHostAvalonia:DialogHost 
+            IsOpen="{Binding !IsLogin}">
+            <dialogHostAvalonia:DialogHost.DialogContent>
+                <Grid RowDefinitions="0.2*,Auto,Auto,Auto,0.2*" 
+                      MinWidth="150"
+                      MinHeight="100">
+                    <Grid.Background>
+                        <VisualBrush Opacity="0.4" Stretch="UniformToFill">
+                            <VisualBrush.Visual>
+                                <Image x:Name="ImageBackground" Source="avares://RickAndMorty/Assets/login.jpg" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Grid.Background>
+                    <avaloniaProgressRing:ProgressRing Width="50" 
+                                                       Height="50"
+                                                       IsVisible="{Binding IsVisibleLoader}"
+                                                       IsActive="True"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"
+                                                       Foreground="{StaticResource Loader_Background}"
+                                                       Margin="10,20,0,0"/>
+                    <TextBox Grid.Row="1"
+                             IsVisible="{Binding !IsVisibleLoader}"
+                             Background="Black"
+                             Opacity="0.75"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Center"
+                             TextAlignment="Center"
+                             Text="{Binding Login}"
+                             Watermark="Логин" />
+                    <TextBox Grid.Row="2"
+                             Background="Black"
+                             Opacity="0.75"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Center"
+                             TextAlignment="Center"
+                             RevealPassword="True"
+                             Watermark="Пароль"
+                             PasswordChar="*"
+                             Text="{Binding Password}"/>
+                    <Button Grid.Row="3" 
+                            Content="Войти"
+                            Command="{Binding LoginInAppCommand}" />
+                </Grid>
+            </dialogHostAvalonia:DialogHost.DialogContent>
+        </dialogHostAvalonia:DialogHost>
+        
+        <TabControl IsVisible="{Binding IsLogin}">
+            <TabItem Header="Главная" Classes="Menu">
+                <views:MainPage/>
+            </TabItem>
+            <TabItem Header="Локация" Classes="Menu">
+                <views:LocationsPage />
+            </TabItem>
+            <TabItem Header="Персонажи" Classes="Menu">
+                <views:PersonPage />
+            </TabItem>
+            <TabItem Header="Избранное" Classes="Menu">
+                <views:LikedPage />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

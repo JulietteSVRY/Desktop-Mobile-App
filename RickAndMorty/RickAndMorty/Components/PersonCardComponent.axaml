@@ -1,0 +1,59 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             xmlns:components="clr-namespace:RickAndMorty.Components"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             mc:Ignorable="d" d:DesignWidth="370" d:DesignHeight="150"
+             Initialized="PersonCard_OnInitialized"
+             x:Class="RickAndMorty.Components.PersonCardComponent"
+             x:DataType="components:PersonCardComponentViewModel">
+    <Design.DataContext>
+        <components:PersonCardComponentViewModel />
+    </Design.DataContext>
+    <Border>
+        <controls:Card Width="370"
+                       Margin="20"
+                       Height="150"
+                       VerticalAlignment="Top" 
+                       Background="{Binding BackgroundCard}"
+                       HorizontalAlignment="Left">
+            <Grid ColumnDefinitions="*,2*" RowDefinitions="*,Auto">
+                <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+                       Stretch="Uniform"
+                       d:DesignSource="avares://RickAndMorty/Assets/LocationBakground.jpg"
+                       Source="{Binding Image}"/>
+                <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" HorizontalAlignment="Left" 
+                            Margin="15">
+                    <StackPanel.Styles>
+                        <Style Selector="TextBlock">
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="FontWeight" Value="700" />
+                            <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+                            <Setter Property="TextAlignment" Value="Left" />
+                        </Style>
+                    </StackPanel.Styles>
+                    <TextBlock Text="{Binding FullName, StringFormat='Полное имя: {0}'}" />
+                    <TextBlock Text="{Binding LastLocation, StringFormat='Последняя локация местонахождения: {0}'}" />
+                    <TextBlock Text="{Binding Status, StringFormat='Статус: {0}'}" />
+                </StackPanel>
+                <Button Grid.Row="1"
+                        Grid.Column="1" 
+                        Width="32" Height="32" 
+                        HorizontalAlignment="Right"
+                        Background="Transparent"
+                        Command="{Binding AddOrDeletePersonLikedItemCommand}"
+                        CommandParameter="{Binding}"
+                        Margin="0,0,20,0"
+                        assists:ShadowAssist.ShadowDepth="Depth0">
+                    <avalonia:MaterialIcon Foreground="{Binding ForegroundStar}"
+                                           Width="32"
+                                           Height="32"
+                                           Kind="Star" />
+                </Button>
+            </Grid>
+        </controls:Card>
+    </Border>
+</UserControl>

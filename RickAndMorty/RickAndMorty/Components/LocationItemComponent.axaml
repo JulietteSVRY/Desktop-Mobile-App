@@ -1,0 +1,43 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:components="clr-namespace:RickAndMorty.Components"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             mc:Ignorable="d"
+             Width="350"
+             Height="90"
+             Background="Transparent"
+             x:Class="RickAndMorty.Components.LocationItemComponent"
+             x:DataType="components:LocationItemComponentViewModel">
+    <Design.DataContext>
+        <components:LocationItemComponentViewModel />
+    </Design.DataContext>
+    <Grid ColumnDefinitions="*,0.1*">
+        <Ellipse Grid.Column="0"
+                 Grid.ColumnSpan="2" 
+                 Width="350" Height="90" 
+                 Fill="{StaticResource TabItem_Header_Background}"/>
+        <TextBlock Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   FontWeight="700"
+                   LineHeight="25"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   Text="{Binding LocationName, TargetNullValue='Не заданно'}" 
+                   Foreground="Black"/>
+        <Button Grid.Column="1" Width="32" Height="32" HorizontalAlignment="Right"
+                Background="Transparent"
+                Command="{Binding AddOrDeleteLocationLikedItemCommand}"
+                CommandParameter="{Binding}"
+                Margin="0,0,20,0"
+                assists:ShadowAssist.ShadowDepth="Depth0">
+            <avalonia:MaterialIcon Foreground="{Binding ForegroundStar}"
+                                   Width="32"
+                                   Height="32"
+                                   Kind="Star" />
+        </Button>
+    </Grid>
+</UserControl>

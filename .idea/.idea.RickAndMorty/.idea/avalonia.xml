@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="RickAndMorty/RickAndMorty/App.axaml" value="RickAndMorty/RickAndMorty.Desktop/RickAndMorty.Desktop.csproj" />
+        <entry key="RickAndMorty/RickAndMorty/Components/LocationItemComponent.axaml" value="RickAndMorty/RickAndMorty.Desktop/RickAndMorty.Desktop.csproj" />
+        <entry key="RickAndMorty/RickAndMorty/Components/PersonCardComponent.axaml" value="RickAndMorty/RickAndMorty.Desktop/RickAndMorty.Desktop.csproj" />
+        <entry key="RickAndMorty/RickAndMorty/Styles/AppStyles.axaml" value="RickAndMorty/RickAndMorty.Desktop/RickAndMorty.Desktop.csproj" />
+        <entry key="RickAndMorty/RickAndMorty/Views/LikedPage.axaml" value="RickAndMorty/RickAndMorty.Desktop/RickAndMorty.Desktop.csproj" />
+        <entry key="RickAndMorty/RickAndMorty/Views/LocationsPage.axaml" value="RickAndMorty/RickAndMorty.Desktop/RickAndMorty.Desktop.csproj" />
+        <entry key="RickAndMorty/RickAndMorty/Views/MainPage.axaml" value="RickAndMorty/RickAndMorty.Desktop/RickAndMorty.Desktop.csproj" />
+        <entry key="RickAndMorty/RickAndMorty/Views/MainView.axaml" value="RickAndMorty/RickAndMorty.Desktop/RickAndMorty.Desktop.csproj" />
+        <entry key="RickAndMorty/RickAndMorty/Views/MainWindow.axaml" value="RickAndMorty/RickAndMorty.Desktop/RickAndMorty.Desktop.csproj" />
+        <entry key="RickAndMorty/RickAndMorty/Views/PersonPage.axaml" value="RickAndMorty/RickAndMorty.Desktop/RickAndMorty.Desktop.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

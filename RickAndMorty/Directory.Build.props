@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <BaseTargetFramework>net8.0</BaseTargetFramework>
+    <Nullable>enable</Nullable>
+    <AvaloniaVersion>11.0.5</AvaloniaVersion>
+    <WarningsAsErrors>true</WarningsAsErrors>
+    <ImplicitUsings>enable</ImplicitUsings>
+<!--    <DefineConstants>ANDROID</DefineConstants>-->
+    <DefineConstants>DESKTOP</DefineConstants>
+  </PropertyGroup>
+</Project>

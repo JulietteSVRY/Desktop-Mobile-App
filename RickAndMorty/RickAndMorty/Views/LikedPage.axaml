@@ -1,0 +1,82 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:RickAndMorty.ViewModels"
+             xmlns:components="clr-namespace:RickAndMorty.Components"
+             xmlns:avaloniaProgressRing="clr-namespace:AvaloniaProgressRing;assembly=AvaloniaProgressRing"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="RickAndMorty.Views.LikedPage"
+             Initialized="StyledElement_OnInitialized"
+             x:DataType="viewModels:LikedPageViewModel">
+    <Design.DataContext>
+        <viewModels:LikedPageViewModel />
+    </Design.DataContext>
+    <UserControl.Background>
+        <VisualBrush Opacity="0.4" Stretch="UniformToFill">
+            <VisualBrush.Visual>
+                <Image x:Name="ImageBackground" Source="avares://RickAndMorty/Assets/LikedBackground.jpeg" />
+            </VisualBrush.Visual>
+        </VisualBrush>
+    </UserControl.Background>
+    <Grid RowDefinitions="*,*">
+        <Grid Grid.Row="0">
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding LikedLocation}" HorizontalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="20">
+                                <components:LocationItemComponent DataContext="{Binding}"/>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+            <ProgressBar IsVisible="{Binding IsVisibleLoader}"
+                         Height="120"
+                         Width="120"
+                         BorderThickness="10"
+                         Foreground="MediumPurple"
+                         Classes="Circular" 
+                         IsIndeterminate="True"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding LikedPersons}" HorizontalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="20">
+                                <components:PersonCardComponent DataContext="{Binding}"/>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+            <ProgressBar IsVisible="{Binding IsVisibleLoader}"
+                         Height="120"
+                         Width="120"
+                         BorderThickness="10"
+                         Foreground="MediumPurple"
+                         Classes="Circular" 
+                         IsIndeterminate="True"/>
+        </Grid>
+        <avaloniaProgressRing:ProgressRing Grid.Row="0" Grid.RowSpan="2" Width="100" 
+                                           Height="100"
+                                           IsVisible="{Binding IsVisibleLoader}"
+                                           IsActive="True"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Foreground="Green"
+                                           Margin="10,20,0,0"/>
+    </Grid>
+</UserControl>
